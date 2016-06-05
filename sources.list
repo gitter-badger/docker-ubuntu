@@ -1,0 +1,8 @@
+################################################################################
+# Pacific National Labs mirrors of standard Ubuntu Repositories
+# Info here: https://launchpad.net/ubuntu/+mirror/mirror.pnl.gov-archive
+# Normal Ubuntu repos are really slow, these are fast.
+################################################################################
+
+deb http://mirror.pnl.gov/ubuntu/ trusty main
+deb-src http://mirror.pnl.gov/ubuntu/ trusty main
