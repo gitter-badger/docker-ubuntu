@@ -1,10 +1,10 @@
 require 'dockerspec/serverspec'
 
 describe "Dockerfile" do
-  describe docker_build('.', tag: 'docker-base') do
+  describe docker_build('.', tag: 'nerdnobs/ubuntu', log_level: :ci) do
     it { should have_maintainer 'NerdNobs "docker@nerdnobs.com"' }
     it { should have_cmd ['/bin/bash'] }
-    describe docker_run('docker-base') do
+    describe docker_run('nerdnobs/ubuntu', log_level: :ci) do
       describe package('wget') do
         it { should be_installed }
       end
