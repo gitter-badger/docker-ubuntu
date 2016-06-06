@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-MAINTAINER @nerdnobs
+MAINTAINER NerdNobs "docker@nerdnobs.com"
 
 ENV DEBIAN_FRONTEND="noninteractive" HOME="/root" TERM="xterm"
 COPY sources.list /etc/apt/sources.list

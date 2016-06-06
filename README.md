@@ -1,7 +1,6 @@
-# docker-base
+# docker-ubuntu
 
-This is the default Docker base image for [NerdNobs](www.nerdnobs.com) Docker
-images.  It is basically the Ubuntu 14.04 base image with a few tweaks and added
-standard packages.
+This is the Docker base image for [NerdNobs](www.nerdnobs.com) Docker images that are based on Ubuntu.
+  It is basically the Ubuntu 14.04 base image with a few tweaks and added and some standard packages.
 
 This image is probably not useful on its own.

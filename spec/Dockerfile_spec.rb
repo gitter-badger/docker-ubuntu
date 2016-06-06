@@ -1,23 +1,20 @@
-require "serverspec"
-require "docker"
+require 'dockerspec/serverspec'
 
 describe "Dockerfile" do
-  image = Docker::Image.build_from_dir('.')
-
-  set :os, family: :debian
-  set :backend, :docker
-  set :docker_image, image.id
-
-  it "installs the right version of Ubuntu" do
-    expect(os_version).to include("Ubuntu 14")
-  end
-
-  it "installs required packages" do
-    expect(package("wget")).to be_installed
-    expect(package("curl")).to be_installed
-  end
-
-  def os_version
-    command("lsb_release -a").stdout
+  describe docker_build('.', tag: 'docker-base') do
+    it { should have_maintainer 'NerdNobs "docker@nerdnobs.com"' }
+    it { should have_cmd ['/bin/bash'] }
+    describe docker_run('docker-base') do
+      describe package('wget') do
+        it { should be_installed }
+      end
+      describe package('curl') do
+        it { should be_installed }
+      end
+      describe command('lsb_release -ri') do
+        its(:stdout) { should match /^Distributor ID:\s+Ubuntu/ }
+        its(:stdout) { should match /^Release:\s+14\./ }
+      end
+    end
   end
 end

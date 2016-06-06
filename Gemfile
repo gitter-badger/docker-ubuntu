@@ -1,4 +1,3 @@
 source 'https://www.rubygems.org'
 
-gem 'serverspec'
-gem 'docker'
+gem 'dockerspec', '~> 0.3.0'
