@@ -2,8 +2,7 @@ machine:
   timezone:
     America/Los_Angeles
   ruby:
-    version:
-      2.2
+    version: "2.2"
   services:
     - docker
 test:
