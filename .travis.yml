@@ -1,0 +1,11 @@
+language: ruby
+rvm:
+  - 2.2
+sudo: required
+services:
+  - docker
+
+script: bundle exec rspec
+
+after_success:
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
