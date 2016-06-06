@@ -5,6 +5,11 @@ machine:
     version: "2.2"
   services:
     - docker
+# This is for this issue: https://discuss.circleci.com/t/bundler-fails-to-find-appropriate-version-despite-installing-appropriate-version-earlier-in-the-build/2815/36
+dependencies:
+  pre:
+    - echo "export rvm_ignore_gemsets_flag=1" >> ~/.rvmrc
+    - gem install bundler
 test:
   override:
     - bundle exec rspec
